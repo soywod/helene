@@ -1,0 +1,21 @@
+{
+  "name": "laravel",
+  "version": "1.0.0",
+  "homepage": "https://github.com/soywod/laravel",
+  "description": "An empty Laravel project with useful pre-installed tools.",
+  "main": "gulpfile.js",
+  "keywords": [
+    "laravel",
+    "empty",
+    "soywod"
+  ],
+  "authors": [
+    "soywod"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "bootstrap": "~3.3.6",
+    "font-awesome": "~4.5.0",
+    "jquery": "~2.1.4"
+  }
+}

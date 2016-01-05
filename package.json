@@ -1,8 +1,37 @@
 {
+  "name": "laravel",
+  "description": "An empty Laravel project with useful pre-installed tools.",
+  "version": "1.0.0",
+  "main": "gulpfile.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/soywod/laravel.git"
+  },
+  "keywords": [
+    "laravel",
+    "empty",
+    "soywod"
+  ],
+  "author": "soywod",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/soywod/laravel/issues"
+  },
+  "homepage": "https://github.com/soywod/laravel#readme",
   "private": true,
   "devDependencies": {
-    "gulp": "^3.8.8"
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-cssnano": "^2.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.0.4",
+    "gulp-uglify": "^1.2.0"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }
