@@ -1,16 +1,30 @@
-var elixir = require('laravel-elixir');
+var gulp = require('gulp'),
+	sass = require('gulp-sass'),
+	minify = require('gulp-cssnano'),
+	concat = require('gulp-concat'),
+	uglify = require('gulp-uglify');
 
-/*
- |--------------------------------------------------------------------------
- | Elixir Asset Management
- |--------------------------------------------------------------------------
- |
- | Elixir provides a clean, fluent API for defining some basic Gulp tasks
- | for your Laravel application. By default, we are compiling the Sass
- | file for our application, as well as publishing vendor resources.
- |
- */
+var paths = {
+	css: [
+		'bower_components/bootstrap/dist/css/bootstrap.min.css',
+		'bower_components/font-awesome/css/font-awesome.min.css'
+	],
+	js: [
+		'bower_components/jquery/dist/jquery.min.js'
+	],
+	fonts: [
+		'bower_components/font-awesome/fonts/*'
+	]
+};
 
-elixir(function(mix) {
-    mix.sass('app.scss');
+gulp.task('js-vendors', function () {
+	return gulp.src(paths.js)
+		.pipe(concat('vendors.min.js'))
+		.pipe(gulp.dest('public/js'))
+});
+
+gulp.task('css-vendors', function () {
+	return gulp.src(paths.css)
+		.pipe(concat('vendors.min.css'))
+		.pipe(gulp.dest('public/css'))
 });
