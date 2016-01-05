@@ -1,4 +1,7 @@
 * text=auto
 *.css linguist-vendored
 *.less linguist-vendored
-.idea
+/vendor
+/bower_components
+/node_modules
+/.idea
