@@ -1,5 +1,7 @@
 .env
-/.idea
-/vendor
-/bower_components
-/node_modules
+.idea
+vendor
+bower_components
+node_modules
+public/css/*
+public/js/*

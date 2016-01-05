@@ -10,7 +10,8 @@ var paths = {
 		'bower_components/font-awesome/css/font-awesome.min.css'
 	],
 	js: [
-		'bower_components/jquery/dist/jquery.min.js'
+		'bower_components/jquery/dist/jquery.min.js',
+		'bower_components/dropzone/dist/min/dropzone.min.js'
 	],
 	fonts: [
 		'bower_components/font-awesome/fonts/*'

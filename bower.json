@@ -16,6 +16,7 @@
   "devDependencies": {
     "bootstrap": "~3.3.6",
     "font-awesome": "~4.5.0",
-    "jquery": "~2.1.4"
+    "jquery": "~2.1.4",
+    "dropzone": "~4.2.0"
   }
 }
