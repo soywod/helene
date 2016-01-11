@@ -1,1 +1,1 @@
-.grid-item,.grid-sizer{width:20%;background:pink;padding:10px}.grid-item--width2{width:40%}.grid-item--height2{height:100%}
+[class^=col-]{padding:0}.helene-thumbnail{border-radius:50%;height:80px;float:left;margin:0 20px 20px 0;overflow:hidden;width:80px}.helene-thumbnail img{height:100%}

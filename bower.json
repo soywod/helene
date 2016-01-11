@@ -18,8 +18,5 @@
     "font-awesome": "~4.5.0",
     "jquery": "~2.1.4",
     "dropzone": "~4.2.0"
-  },
-  "dependencies": {
-    "masonry": "~3.3.2"
   }
 }
