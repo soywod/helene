@@ -18,7 +18,13 @@
             </div>
         </div>
         <div class="col-lg-8">
-            yeah
+            <div class="masonry">
+                @foreach($randWorks as $work)
+                    <div class="masonry-item">
+                        <img src="{{ url('img/work', $work->thumbnail) }}" alt="{{ $work->title }}">
+                    </div>
+                @endforeach
+            </div>
         </div>
     </div>
 @endsection

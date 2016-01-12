@@ -13,7 +13,8 @@ class FrontController extends Controller
 	public function getHome()
 	{
 		$user = User::find(1);
+		$randWorks = $user->works->random(8);
 
-		return view('front.getHome', compact('user'));
+		return view('front.getHome', compact('user', 'randWorks'));
 	}
 }

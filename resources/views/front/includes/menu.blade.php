@@ -1,5 +1,5 @@
-<nav class="navbar navbar-default">
-    <div class="container">
+<div class="container">
+    <nav class="navbar navbar-inverse">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
                 <span class="sr-only">Toggle navigation</span>
@@ -14,6 +14,9 @@
             <ul class="nav navbar-nav navbar-right">
                 <li>
                     <a href="{{ url('/') }}">{{ trans('front/menu.home') }}</a>
+                </li>
+                <li>
+                    <a href="#">{{ trans('front/menu.contact') }}</a>
                 </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -43,10 +46,7 @@
                         </li>
                     </ul>
                 </li>
-                <li>
-                    <a href="{{ url('/contact') }}">{{ trans('front/menu.contact') }}</a>
-                </li>
             </ul>
         </div>
-    </div>
-</nav>
+    </nav>
+</div>
