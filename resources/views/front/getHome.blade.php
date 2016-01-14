@@ -6,7 +6,7 @@
 @section('content')
     @include('front.includes.menu')
 
-    <div class="container">
+    <div class="container helene-container">
         <div class="col-lg-4">
             <section class="helene">
                 <div class="helene-thumbnail">

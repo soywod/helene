@@ -1,7 +1,5 @@
-($(function() {
-	$('.grid').masonry({
-		itemSelector: '.grid-item',
-		columnWidth: '.grid-sizer',
-		percentPosition: true
-	});
-}))();
+$(function () {
+	$('.masonry-item').each(function (index, elem) {
+		$(elem).fadeIn(parseInt(Math.random() * 1800 + 200));
+	})
+});
