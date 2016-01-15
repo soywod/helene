@@ -21,7 +21,7 @@ class FrontController extends Controller
 		$user = User::find(1);
 
 		// Retrieve random works
-		$randWorks = $user->works->random(8);
+		$randWorks = $user->works->random(9);
 
 		// Return the view
 		return view('front.getHome', compact('user', 'randWorks'));
@@ -46,5 +46,15 @@ class FrontController extends Controller
 
 		// Return the view
 		return view('front.getWorks', compact('works'));
+	}
+
+	public function getWork($parId)
+	{
+		// Try to get current category by slug
+		$work = Work::find((int)$parId);
+		$work->thumbnail = url('img/work', $work->thumbnail);
+
+		// Return the view
+		return response()->json($work);
 	}
 }

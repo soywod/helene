@@ -9,11 +9,28 @@ $masonry-count: 1, 2, 3, 4, 5
 
 .masonry-item
   background-color: $white
+  cursor: pointer
   display: none
   margin: 0 0 15px 0
   padding: 3px
   width: 100%
+  transition: left 1000ms
+  position: relative
 
   img
     width: 100%
     border: 1px solid $black
+
+.masonry-fade
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  background: rgba(0, 0, 0, 0.5)
+  z-index: 1
+  display: flex
+
+  i
+    margin: auto
+    color: $white

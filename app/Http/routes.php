@@ -20,6 +20,7 @@ Route::get('/seed', function() {
 
 Route::get('/', 'FrontController@getHome')->name('home');
 Route::get('/works/{category}', 'FrontController@getWorks')->name('works');
+Route::get('/work/{id}', 'FrontController@getWork')->name('work');
 
 /*
 |--------------------------------------------------------------------------

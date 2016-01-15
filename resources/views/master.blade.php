@@ -35,6 +35,21 @@
 
         @yield('content')
 
+        <div class="preview" style="display: none">
+            <div class="preview-loader">
+                <i class="fa fa-5x fa-circle-o-notch fa-spin"></i>
+            </div>
+
+            <div class="preview-close">
+                <i class="fa fa-4x fa-times"></i>
+            </div>
+
+            <div class="preview-image"></div>
+            <div class="preview-desc">
+                <div class="preview-desc-content"></div>
+            </div>
+        </div>
+
         @section('js')
             <script src="{{ asset('js/vendors.min.js') }}"></script>
             <script src="{{ asset('js/master.min.js') }}"></script>

@@ -20,9 +20,7 @@
         <div class="col-lg-8">
             <section class="masonry masonry-3">
                 @foreach($randWorks as $work)
-                    <div class="masonry-item">
-                        <img src="{{ url('img/work', $work->thumbnail) }}" alt="{{ $work->title }}">
-                    </div>
+                    @include('front.includes.getWork')
                 @endforeach
             </section>
         </div>
