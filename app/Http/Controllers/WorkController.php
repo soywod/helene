@@ -12,6 +12,7 @@ use App\Http\ {
 	Requests,
 	Controllers\Controller
 };
+use App\Work;
 
 class WorkController extends Controller
 {
@@ -20,9 +21,11 @@ class WorkController extends Controller
 	 *
 	 * @return Response
 	 */
-	public function index() : Response
+	public function index()
 	{
-		//
+		$works = Work::all()->sortBy('created_at');
+
+		return view('back.getWorks', compact('works'));
 	}
 
 	/**

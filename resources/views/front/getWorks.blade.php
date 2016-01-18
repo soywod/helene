@@ -10,7 +10,7 @@
         <ul class="category-menu">
             @foreach(App\Category::all() as $category)
                 <li class="{{ Request::segment(2) === $category->slug ? 'active' : '' }}">
-                    <a href="{{ route('works', ['category' => $category->slug]) }}">
+                    <a href="{{ route('front.works', ['category' => $category->slug]) }}">
                         {{ trans('front/menu.' . $category->slug) }}
                     </a>
                 </li>
@@ -18,10 +18,6 @@
         </ul>
     </div>
     <div class="container">
-        <section class="masonry masonry-5">
-            @foreach($works as $work)
-                @include('front.includes.getWork')
-            @endforeach
-        </section>
+        @include('front.partials.work.index')
     </div>
 @endsection

@@ -11,15 +11,15 @@
 |
 */
 
-
-Route::get('/seed', function() {
-	for($i = 0; $i < 50; $i++)
+Route::get('/seed', function ()
+{
+	for ($i = 0; $i < 50; $i++)
 		factory(App\Work::class)->create();
 });
 
-Route::get('/', 'FrontController@getHome')->name('home');
-Route::get('/works/{category}', 'FrontController@getWorks')->name('works');
-Route::get('/work/{id}', 'FrontController@getWork')->name('work');
+Route::get('/', 'FrontController@getHome')->name('front.home');
+Route::get('/works/{category}', 'FrontController@getWorks')->name('front.works');
+Route::get('/work/{id}', 'FrontController@getWork')->name('front.work');
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +32,22 @@ Route::get('/work/{id}', 'FrontController@getWork')->name('work');
 |
 */
 
-Route::group(['middleware' => ['web'], 'prefix' => 'admin'], function () {
-	Route::resource('work', 'WorkController');
+Route::group(['middleware' => ['web'], 'prefix' => 'admin'], function ()
+{
+	Route::get('/', 'BackController@getHome')->name('back.home');
+	Route::get('/profile', 'BackController@getProfile')->name('back.profile');
+
+	Route::resource('category', 'CategoryController', [
+		'names' => [
+			'index' => 'back.category.index',
+			'edit'  => 'back.category.edit',
+		],
+	]);
+
+	Route::resource('work', 'WorkController', [
+		'names' => [
+			'index' => 'back.work.index',
+			'edit'  => 'back.work.edit',
+		],
+	]);
 });

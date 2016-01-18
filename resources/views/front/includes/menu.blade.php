@@ -7,18 +7,18 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{{ route('home') }}">{{ trans('front/home.full_name') }}</a>
+            <a class="navbar-brand" href="{{ route('front.home') }}">{{ trans('front/menu.full_name') }}</a>
         </div>
 
         <div class="collapse navbar-collapse" id="navbar">
             <ul class="nav navbar-nav navbar-right">
-                <li class="{{ count(Request::segments()) === 0 ? 'active' : '' }}">
-                    <a href="{{ route('home')  }}">{{ trans('front/menu.home') }}</a>
+                <li class="{{ Route::currentRouteNamed('front.home') ? 'active' : '' }}">
+                    <a href="{{ route('front.home')  }}">{{ trans('front/menu.home') }}</a>
                 </li>
                 <li>
                     <a href="#">{{ trans('front/menu.contact') }}</a>
                 </li>
-                <li class="dropdown{{ Request::segment(1) === 'works' ? ' active' : '' }}">
+                <li class="dropdown{{ Route::currentRouteNamed('front.works') ? ' active' : '' }}">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                         {{ trans('front/menu.works') }}
                         <span class="caret"></span>
@@ -26,7 +26,7 @@
                     <ul class="dropdown-menu">
                         @foreach(App\Category::all() as $category)
                             <li class="{{ Request::segment(2) === $category->slug ? 'active' : '' }}">
-                                <a href="{{ route('works', ['category' => $category->slug]) }}">
+                                <a href="{{ route('front.works', ['category' => $category->slug]) }}">
                                     {{ trans('front/menu.' . $category->slug) }}
                                 </a>
                             </li>

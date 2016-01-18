@@ -28,9 +28,13 @@ $(function () {
 				success: function (res) {
 					$previewLoader.hide(0);
 					$previewImage.html('<img src="' + res.thumbnail + '" alt="' + res.title + '">');
+					console.log(res);
 					$previewDesc.html(
 						'<h2>' + res.title + '</h2>' +
-						'<p>' +res.desc+ '</p>'
+						'<p>' + res.size + '</p>' +
+						'<p>' + res.box_price + '</p>' +
+						'<p>' + res.unbox_price + '</p>' +
+						'<p>' + (res.sold === 1) + '</p>'
 					);
 				},
 				error  : function () {

@@ -18,6 +18,10 @@ class CreateWorksTable extends Migration
             $table->integer('category_id')->unsigned()->nullable();
             $table->integer('user_id')->unsigned()->nullable();
             $table->string('title');
+            $table->string('size');
+            $table->float('box_price');
+            $table->float('unbox_price');
+            $table->boolean('sold');
             $table->string('thumbnail');
             $table->timestamps();
 

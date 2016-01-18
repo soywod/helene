@@ -17,7 +17,7 @@ class FrontController extends Controller
 	public function getHome()
 	{
 		// Retrieve user
-		// TODO use Auth::user() instead
+		// TODO : use Auth::user() instead
 		$user = User::find(1);
 
 		// Retrieve random works

@@ -20,7 +20,7 @@
         <div class="col-lg-8">
             <section class="masonry masonry-3">
                 @foreach($randWorks as $work)
-                    @include('front.includes.getWork')
+                    @include('front.partials.work.show')
                 @endforeach
             </section>
         </div>
