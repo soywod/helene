@@ -19,6 +19,7 @@ $(function () {
 			var workId = $(this).attr('data-id');
 
 			$preview.fadeIn();
+			$previewImage.html('');
 			$previewLoader.show(0);
 
 			$.ajax({
@@ -35,7 +36,7 @@ $(function () {
 				error  : function () {
 					console.log('KO');
 				}
-			})
+			});
 		});
 
 	$preview
