@@ -9,12 +9,14 @@ var gulp   = require('gulp'),
 var paths = {
 	css  : [
 		'bower_components/bootstrap/dist/css/bootstrap.min.css',
-		'bower_components/font-awesome/css/font-awesome.min.css'
+		'bower_components/font-awesome/css/font-awesome.min.css',
+		'bower_components/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.min.css'
 	],
 	js   : [
 		'bower_components/jquery/dist/jquery.min.js',
 		'bower_components/bootstrap/dist/js/bootstrap.min.js',
-		'bower_components/dropzone/dist/min/dropzone.min.js'
+		'bower_components/dropzone/dist/min/dropzone.min.js',
+		'bower_components/bootstrap-switch/dist/js/bootstrap-switch.min.js'
 	],
 	fonts: [
 		'bower_components/font-awesome/fonts/*'

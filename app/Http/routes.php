@@ -46,8 +46,9 @@ Route::group(['middleware' => ['web'], 'prefix' => 'admin'], function ()
 
 	Route::resource('work', 'WorkController', [
 		'names' => [
-			'index' => 'back.work.index',
-			'edit'  => 'back.work.edit',
+			'index'  => 'back.work.index',
+			'edit'   => 'back.work.edit',
+			'update' => 'back.work.update',
 		],
 	]);
 });

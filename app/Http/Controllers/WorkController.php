@@ -13,19 +13,20 @@ use App\Http\ {
 	Controllers\Controller
 };
 use App\Work;
+use Illuminate\View\View;
 
 class WorkController extends Controller
 {
 	/**
 	 * Display a listing of the resource.
 	 *
-	 * @return Response
+	 * @return View
 	 */
-	public function index()
+	public function index() : View
 	{
 		$works = Work::all()->sortBy('created_at');
 
-		return view('back.getWorks', compact('works'));
+		return view('back.work.index', compact('works'));
 	}
 
 	/**
@@ -64,11 +65,13 @@ class WorkController extends Controller
 	 * Show the form for editing the specified resource.
 	 *
 	 * @param  int $id
-	 * @return \Illuminate\Http\Response
+	 * @return View
 	 */
-	public function edit($id)
+	public function edit(int $id) : View
 	{
-		//
+		$work = Work::find($id);
+
+		return view('back.work.edit', compact('work'));
 	}
 
 	/**

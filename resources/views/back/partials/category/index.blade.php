@@ -1,8 +1,11 @@
 <table class="table table-admin">
     <thead>
         <tr>
-            <th>{{ trans('back/category.name') }}</th>
-            <th>{{ trans('back/category.slug') }}</th>
+            <th>{{ ucfirst(trans('general.name')) }}</th>
+            <th>
+                {{ ucfirst(trans('general.slug')) }}
+                <i class="fa fa-question-circle" data-toggle="tooltip" data-placement="right" title="{{ trans('back/category.slug_desc') }}"></i>
+            </th>
         </tr>
     </thead>
     <tbody>

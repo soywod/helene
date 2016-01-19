@@ -4,6 +4,9 @@ $(function () {
 	var $previewImage = $('.preview-image');
 	var $previewDesc = $('.preview-desc-content');
 
+	$('[data-toggle="tooltip"]').tooltip();
+	$('#work-sold').bootstrapSwitch();
+
 	$('.masonry-item').each(function (index, elem) {
 		$(elem).fadeIn(200 + 50 * index);
 	});
