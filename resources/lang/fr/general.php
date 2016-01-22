@@ -7,6 +7,8 @@ return [
 	'size'        => 'dimension',
 	'width'       => 'largeur',
 	'height'      => 'hauteur',
+	'category'    => 'catégorie',
+	'back'        => 'retour',
 	'name'        => 'nom',
 	'slug'        => 'slug',
 	'save'        => 'enregistrer',

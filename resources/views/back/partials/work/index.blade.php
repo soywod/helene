@@ -2,6 +2,7 @@
     <thead>
         <tr>
             <th>{{ ucfirst(trans('general.title')) }}</th>
+            <th>{{ ucfirst(trans('general.category')) }}</th>
             <th>{{ ucfirst(trans('general.size')) }}</th>
             <th>{{ ucfirst(trans('general.box_price')) }}</th>
             <th>{{ ucfirst(trans('general.unbox_price')) }}</th>

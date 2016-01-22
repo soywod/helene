@@ -3,51 +3,60 @@ declare(strict_types = 1);
 
 namespace App\Http\Controllers;
 
+use Redirect, View;
+
 use Illuminate\Http\{
 	Request,
-	Response
+	Response,
+	RedirectResponse
 };
 
 use App\Http\ {
 	Requests,
 	Controllers\Controller
 };
+
+use App\Http\Requests\CreateOrUpdateWorkRequest;
 use App\Work;
-use Illuminate\View\View;
 
 class WorkController extends Controller
 {
 	/**
 	 * Display a listing of the resource.
 	 *
-	 * @return View
+	 * @return \Illuminate\View\View
 	 */
-	public function index() : View
+	public function index() : \Illuminate\View\View
 	{
 		$works = Work::all()->sortBy('created_at');
 
-		return view('back.work.index', compact('works'));
+		return View::make('back.work.index', compact('works'));
 	}
 
 	/**
 	 * Show the form for creating a new resource.
 	 *
-	 * @return \Illuminate\Http\Response
+	 * @return \Illuminate\View\View
 	 */
-	public function create()
+	public function create() : \Illuminate\View\View
 	{
-		//
+		return View::make('back.work.create');
 	}
 
 	/**
 	 * Store a newly created resource in storage.
 	 *
-	 * @param  \Illuminate\Http\Request $request
-	 * @return \Illuminate\Http\Response
+	 * @param  CreateOrUpdateWorkRequest $request
+	 * @return RedirectResponse
 	 */
-	public function store(Request $request)
+	public function store(CreateOrUpdateWorkRequest $request) : RedirectResponse
 	{
-		//
+		$params = $request->all();
+
+		$params['sold'] = isset($params['sold']);
+		Work::create($params);
+
+		return Redirect::route('back.work.index')->with('message', trans('back/work.created'));
 	}
 
 	/**
@@ -64,26 +73,32 @@ class WorkController extends Controller
 	/**
 	 * Show the form for editing the specified resource.
 	 *
-	 * @param  int $id
-	 * @return View
+	 * @param int $id
+	 * @return \Illuminate\View\View
 	 */
-	public function edit(int $id) : View
+	public function edit(int $id) : \Illuminate\View\View
 	{
 		$work = Work::find($id);
 
-		return view('back.work.edit', compact('work'));
+		return View::make('back.work.edit', compact('work'));
 	}
 
 	/**
 	 * Update the specified resource in storage.
 	 *
-	 * @param  \Illuminate\Http\Request $request
-	 * @param  int $id
-	 * @return \Illuminate\Http\Response
+	 * @param CreateOrUpdateWorkRequest $request
+	 * @param int $id
+	 * @return RedirectResponse
 	 */
-	public function update(Request $request, $id)
+	public function update(CreateOrUpdateWorkRequest $request, $id) : RedirectResponse
 	{
-		//
+		$work = Work::find($id);
+		$params = $request->all();
+
+		$params['sold'] = isset($params['sold']);
+		$work->update($params);
+
+		return Redirect::route('back.work.index')->with('message', trans('back/work.updated'));
 	}
 
 	/**

@@ -24,7 +24,7 @@
                 <li class="{{ Route::currentRouteNamed('back.category.index') ? 'active' : '' }}">
                     <a href="{{ route('back.category.index')  }}">{{ trans('back/menu.categories') }}</a>
                 </li>
-                <li class="{{ Route::currentRouteNamed('back.work.index') ? 'active' : '' }}">
+                <li class="{{ Request::segment(2) === 'work' ? 'active' : '' }}">
                     <a href="{{ route('back.work.index')  }}">{{ trans('back/menu.works') }}</a>
                 </li>
             </ul>

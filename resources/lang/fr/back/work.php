@@ -1,6 +1,8 @@
 <?php
 
 return [
-	'sold'             => 'vendu ?',
-	'update_this_work' => 'Mettre à jour cette oeuvre',
+	'sold'    => 'vendu ?',
+	'create'  => 'ajouter une oeuvre',
+	'created' => 'oeuvre ajoutée avec succès',
+	'updated' => 'oeuvre mise à jour avec succès',
 ];

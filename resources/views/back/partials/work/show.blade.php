@@ -4,6 +4,9 @@
     </a>
 </td>
 <td>
+    {{ ucfirst($work->category->name) }}
+</td>
+<td>
     {{ $work->width }} x {{ $work->height }} cm
 </td>
 <td>
