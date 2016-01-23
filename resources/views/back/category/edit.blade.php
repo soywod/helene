@@ -7,6 +7,8 @@
     @include('back.includes.menu')
 
     <div class="container">
-        @include('back.partials.category.index')
+        <section class="admin">
+            @include('back.category.partials.edit')
+        </section>
     </div>
 @endsection

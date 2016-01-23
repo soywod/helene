@@ -5,18 +5,20 @@ namespace App\Http\Controllers;
 
 use Redirect, View;
 
-use Illuminate\Http\{
+use Illuminate\Http\
+{
 	Request,
 	Response,
 	RedirectResponse
 };
 
-use App\Http\ {
+use App\Http\
+{
 	Requests,
 	Controllers\Controller
 };
 
-use App\Http\Requests\CreateOrUpdateWorkRequest;
+use App\Http\Requests\StoreOrUpdateWorkRequest;
 use App\Work;
 
 class WorkController extends Controller
@@ -46,10 +48,10 @@ class WorkController extends Controller
 	/**
 	 * Store a newly created resource in storage.
 	 *
-	 * @param  CreateOrUpdateWorkRequest $request
+	 * @param  StoreOrUpdateWorkRequest $request
 	 * @return RedirectResponse
 	 */
-	public function store(CreateOrUpdateWorkRequest $request) : RedirectResponse
+	public function store(StoreOrUpdateWorkRequest $request) : RedirectResponse
 	{
 		$params = $request->all();
 
@@ -86,11 +88,11 @@ class WorkController extends Controller
 	/**
 	 * Update the specified resource in storage.
 	 *
-	 * @param CreateOrUpdateWorkRequest $request
+	 * @param StoreOrUpdateWorkRequest $request
 	 * @param int $id
 	 * @return RedirectResponse
 	 */
-	public function update(CreateOrUpdateWorkRequest $request, $id) : RedirectResponse
+	public function update(StoreOrUpdateWorkRequest $request, $id) : RedirectResponse
 	{
 		$work = Work::find($id);
 		$params = $request->all();
@@ -105,10 +107,17 @@ class WorkController extends Controller
 	 * Remove the specified resource from storage.
 	 *
 	 * @param  int $id
-	 * @return \Illuminate\Http\Response
+	 * @return RedirectResponse
 	 */
-	public function destroy($id)
+	public function destroy(int $id) : RedirectResponse
 	{
-		//
+		if (Work::destroy($id) > 0)
+		{
+			return Redirect::back()->with('message', ucfirst(trans('back/work.success_deleted')));
+		}
+		else
+		{
+			return Redirect::back()->with('message', ucfirst(trans('back/work.error_deleted')));
+		}
 	}
 }

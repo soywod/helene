@@ -39,18 +39,23 @@ Route::group(['middleware' => ['web'], 'prefix' => 'admin'], function ()
 
 	Route::resource('category', 'CategoryController', [
 		'names' => [
-			'index' => 'back.category.index',
-			'edit'  => 'back.category.edit',
+			'index'   => 'back.category.index',
+			'create'  => 'back.category.create',
+			'store'   => 'back.category.store',
+			'edit'    => 'back.category.edit',
+			'update'  => 'back.category.update',
+			'destroy' => 'back.category.destroy',
 		],
 	]);
 
 	Route::resource('work', 'WorkController', [
 		'names' => [
-			'index'  => 'back.work.index',
-			'create' => 'back.work.create',
-			'store' => 'back.work.store',
-			'edit'   => 'back.work.edit',
-			'update' => 'back.work.update',
+			'index'   => 'back.work.index',
+			'create'  => 'back.work.create',
+			'store'   => 'back.work.store',
+			'edit'    => 'back.work.edit',
+			'update'  => 'back.work.update',
+			'destroy' => 'back.work.destroy',
 		],
 	]);
 });

@@ -4,15 +4,16 @@
             <th>{{ ucfirst(trans('general.title')) }}</th>
             <th>{{ ucfirst(trans('general.category')) }}</th>
             <th>{{ ucfirst(trans('general.size')) }}</th>
-            <th>{{ ucfirst(trans('general.box_price')) }}</th>
-            <th>{{ ucfirst(trans('general.unbox_price')) }}</th>
-            <th>{{ ucfirst(trans('back/work.sold')) }}</th>
+            <th class="text-center">{{ ucfirst(trans('general.box_price')) }}</th>
+            <th class="text-center">{{ ucfirst(trans('general.unbox_price')) }}</th>
+            <th class="text-center">{{ ucfirst(trans('back/work.sold')) }}</th>
+            <th class="text-right">{{ ucfirst(trans('general.delete')) }}</th>
         </tr>
     </thead>
     <tbody>
         @foreach($works as $work)
             <tr>
-                @include('back.partials.work.show')
+                @include('back.work.partials.show')
             </tr>
         @endforeach
     </tbody>

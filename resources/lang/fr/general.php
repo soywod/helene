@@ -9,6 +9,7 @@ return [
 	'height'      => 'hauteur',
 	'category'    => 'catégorie',
 	'back'        => 'retour',
+	'delete'      => 'supprimer',
 	'name'        => 'nom',
 	'slug'        => 'slug',
 	'save'        => 'enregistrer',

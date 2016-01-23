@@ -20,7 +20,7 @@ class Work extends Model
 		'box_price',
 		'unbox_price',
 		'sold',
-		'thumbnail'
+		'thumbnail',
 	];
 
 	/**

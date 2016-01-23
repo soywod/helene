@@ -8,7 +8,7 @@
 
     <div class="container">
         <section class="admin">
-            @include('back.work.partials.create')
+            @include('back.category.partials.create')
         </section>
     </div>
 @endsection

@@ -61,10 +61,24 @@ a
 .tooltip.right .tooltip-arrow
   border-right-color: $white
 
+.tooltip.bottom .tooltip-arrow
+  border-bottom-color: $white
+
 .tooltip.in
   opacity: 1
 
 .tooltip-inner
   background: $white
   color: $black
-  text-align: justify
+  text-align: left
+
+.form-control
+  background: $white
+  color: $black
+  border-radius: 0
+
+  &:focus
+    box-shadow: none !important
+
+.form-group.has-error .form-control
+    background: $red

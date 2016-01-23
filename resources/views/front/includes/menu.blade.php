@@ -27,7 +27,7 @@
                         @foreach(App\Category::all() as $category)
                             <li class="{{ Request::segment(2) === $category->slug ? 'active' : '' }}">
                                 <a href="{{ route('front.works', ['category' => $category->slug]) }}">
-                                    {{ trans('front/menu.' . $category->slug) }}
+                                    {{ Lang::has('category.' . $category->slug) ? ucfirst(Lang::get('category.' . $category->slug)) : ucfirst($category->name) }}
                                 </a>
                             </li>
                         @endforeach

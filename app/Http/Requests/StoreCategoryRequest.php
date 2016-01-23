@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 
-class CreateOrUpdateWorkRequest extends Request
+class StoreCategoryRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,12 +24,8 @@ class CreateOrUpdateWorkRequest extends Request
     public function rules()
     {
         return [
-            'title'       => 'required',
-            'category_id' => 'required',
-            'width'       => 'required:numeric',
-            'height'      => 'required:numeric',
-            'box_price'   => 'numeric',
-            'unbox_price' => 'numeric',
+            'name' => 'required',
+            'slug' => 'required|unique:categories,slug|regex:/^[a-zA-Z\-]+$/',
         ];
     }
 }
