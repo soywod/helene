@@ -8,6 +8,8 @@ return [
 	'width'       => 'largeur',
 	'height'      => 'hauteur',
 	'category'    => 'catégorie',
+	'photo'       => 'photo',
+	'desc'        => 'description',
 	'back'        => 'retour',
 	'delete'      => 'supprimer',
 	'name'        => 'nom',

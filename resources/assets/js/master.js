@@ -49,5 +49,14 @@ $(function () {
 	$preview
 		.on('click', '.preview-close', function () {
 			$preview.fadeOut();
-		})
+		});
+
+	$('.profile-thumbnail').on({
+		mouseenter: function() {
+			$(this).find('.profile-thumbnail-edit').fadeIn(200);
+		},
+		mouseleave: function() {
+			$(this).find('.profile-thumbnail-edit').fadeOut(200);
+		}
+	})
 });

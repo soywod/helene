@@ -7,3 +7,25 @@
 
   td
     vertical-align: middle !important
+
+  .profile-thumbnail
+    display: inline-block
+    position: relative
+
+    > img
+      max-width: 200px
+      max-height: 200px
+
+  .profile-thumbnail-edit
+    display: flex
+    position: absolute
+    left: 0
+    right: 0
+    top: 0
+    bottom: 0
+    background: transparentize($white, .4)
+    cursor: pointer
+
+    i
+      margin: auto
+      color: $black

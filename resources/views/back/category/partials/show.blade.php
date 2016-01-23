@@ -11,7 +11,7 @@
         {{ csrf_field() }}
         {{ method_field('DELETE') }}
         <button class="btn btn-link" type="submit">
-            <i class="fa fa-trash-o text-default"></i>
+            <i class="fa fa-trash-o fa-2x"></i>
         </button>
     </form>
 </td>

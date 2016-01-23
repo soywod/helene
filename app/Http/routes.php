@@ -35,7 +35,8 @@ Route::get('/work/{id}', 'FrontController@getWork')->name('front.work');
 Route::group(['middleware' => ['web'], 'prefix' => 'admin'], function ()
 {
 	Route::get('/', 'BackController@getHome')->name('back.home');
-	Route::get('/profile', 'BackController@getProfile')->name('back.profile');
+	Route::get('/profile', 'BackController@getProfile')->name('back.profile.edit');
+	Route::put('/profile', 'BackController@getProfile')->name('back.profile.update');
 
 	Route::resource('category', 'CategoryController', [
 		'names' => [

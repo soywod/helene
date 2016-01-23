@@ -9,20 +9,12 @@ use App\
 	Work
 };
 
-use App\Http\
-{
-	Requests,
-	Controllers\Controller
-};
+use App\Http\Requests;
 
-use Illuminate\Http\
-{
-	Request,
-	RedirectResponse
-};
+use App\User;
+use Illuminate\Http\RedirectResponse;
 
-use \Illuminate\View\View;
-use Redirect;
+use Redirect, View;
 
 class BackController extends Controller
 {
@@ -33,16 +25,18 @@ class BackController extends Controller
 	 */
 	public function getHome() : RedirectResponse
 	{
-		return redirect()->route('back.profile');
+		return Redirect::route('back.profile.edit');
 	}
 
 	/**
 	 * Get admin profile page.
 	 *
-	 * @return View
+	 * @return \Illuminate\View\View
 	 */
-	public function getProfile() : View
+	public function getProfile() : \Illuminate\View\View
 	{
-		return view('back.getProfile');
+		$user = User::find(1);
+
+		return View::make('back.profile.edit', compact('user'));
 	}
 }
