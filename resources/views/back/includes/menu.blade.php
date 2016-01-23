@@ -18,7 +18,7 @@
                         {{ trans('back/menu.back_to_front') }}
                     </a>
                 </li>
-                <li class="{{ Route::currentRouteNamed('back.profile') ? 'active' : '' }}">
+                <li class="{{ Route::currentRouteNamed('back.profile.edit') ? 'active' : '' }}">
                     <a href="{{ route('back.profile.edit')  }}">{{ trans('back/menu.profile') }}</a>
                 </li>
                 <li class="{{ Request::segment(2) === 'category' ? 'active' : '' }}">

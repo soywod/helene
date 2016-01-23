@@ -36,7 +36,8 @@ Route::group(['middleware' => ['web'], 'prefix' => 'admin'], function ()
 {
 	Route::get('/', 'BackController@getHome')->name('back.home');
 	Route::get('/profile', 'BackController@getProfile')->name('back.profile.edit');
-	Route::put('/profile', 'BackController@getProfile')->name('back.profile.update');
+	Route::put('/profile', 'BackController@postProfile')->name('back.profile.update');
+	Route::post('/profile/upload', 'BackController@postUpload');
 
 	Route::resource('category', 'CategoryController', [
 		'names' => [

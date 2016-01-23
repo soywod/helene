@@ -58,7 +58,7 @@ class WorkController extends Controller
 		$params['sold'] = isset($params['sold']);
 		Work::create($params);
 
-		return Redirect::route('back.work.index')->with('message', trans('back/work.created'));
+		return Redirect::route('back.work.index')->with('message', ucfirst(trans('back/work.success_created')));
 	}
 
 	/**
@@ -100,7 +100,7 @@ class WorkController extends Controller
 		$params['sold'] = isset($params['sold']);
 		$work->update($params);
 
-		return Redirect::route('back.work.index')->with('message', trans('back/work.updated'));
+		return Redirect::route('back.work.index')->with('message', ucfirst(trans('back/work.success_updated')));
 	}
 
 	/**

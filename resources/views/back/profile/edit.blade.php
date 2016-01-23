@@ -18,7 +18,7 @@
                     <div class="col-sm-10">
                         <div class="profile-thumbnail">
                             <img id="profile-thumbnail" src="{{ url('img/user', $user->thumbnail) }}" alt="{{ ucfirst(Lang::get('general.helene_thumbnail')) }}">
-                            <div class="profile-thumbnail-edit" style="display: none">
+                            <div class="profile-thumbnail-edit" data-token="{{ csrf_token() }}" style="display: none">
                                 <i class="fa fa-3x fa-pencil-square-o"></i>
                             </div>
                         </div>
@@ -28,12 +28,10 @@
                 <div class="form-group{{ $errors->has('desc') ? ' has-error' : '' }}">
                     <label for="profile-desc" class="col-sm-2 control-label">{{ ucfirst(trans('general.desc')) }}</label>
                     <div class="col-sm-10">
-                        <textarea name="desc" class="form-control" id="profile-desc" rows="10">
-                            {{ old('desc') ?? $user->desc }}
-                        </textarea>
+                        <textarea name="desc" class="form-control" id="profile-desc" rows="10">{{ old('desc') ?? $user->desc }}</textarea>
                     </div>
                 </div>
-                
+
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10 text-right">
                         <button type="submit" class="btn btn-default">

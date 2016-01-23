@@ -58,7 +58,7 @@ class CategoryController extends Controller
 		$params['slug'] = strtolower($params['slug']);
 		Category::create($params);
 
-		return Redirect::route('back.category.index')->with('message', trans('back/category.success_stored'));
+		return Redirect::route('back.category.index')->with('message', ucfirst(trans('back/category.success_stored')));
 	}
 
 	/**
@@ -100,7 +100,7 @@ class CategoryController extends Controller
 		$params['slug'] = strtolower($params['slug']);
 		$category->update($params);
 
-		return Redirect::route('back.category.index')->with('message', trans('back/category.success_updated'));
+		return Redirect::route('back.category.index')->with('message', ucfirst(trans('back/category.success_updated')));
 	}
 
 	/**

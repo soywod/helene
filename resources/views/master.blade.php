@@ -23,13 +23,8 @@
         </p><![endif]-->
 
         @if(Session::has('message'))
-            <div class="container">
-                <div class="alert alert-success alert-dismissible fade in" role="alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    {{ Session::get('message') }}
-                </div>
+            <div class="popup">
+                {{ Session::get('message') }}
             </div>
         @endif
 
@@ -48,6 +43,10 @@
             <div class="preview-desc">
                 <div class="preview-desc-content"></div>
             </div>
+        </div>
+
+        <div class="loader" style="display: none">
+            <i class="fa fa-refresh fa-5x fa-spin"></i>
         </div>
 
         @section('js')

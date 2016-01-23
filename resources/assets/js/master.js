@@ -3,6 +3,8 @@ $(function () {
 	var $previewLoader = $('.preview-loader');
 	var $previewImage = $('.preview-image');
 	var $previewDesc = $('.preview-desc-content');
+	var $loader = $('.loader');
+	var $postThumbnailEdit = $('.profile-thumbnail-edit');
 
 	$('[data-toggle="tooltip"]').tooltip();
 	$('#work-sold').bootstrapSwitch();
@@ -52,11 +54,30 @@ $(function () {
 		});
 
 	$('.profile-thumbnail').on({
-		mouseenter: function() {
+		mouseenter: function () {
 			$(this).find('.profile-thumbnail-edit').fadeIn(200);
 		},
-		mouseleave: function() {
+		mouseleave: function () {
 			$(this).find('.profile-thumbnail-edit').fadeOut(200);
 		}
-	})
+	});
+
+	$('.profile-thumbnail-edit, .profile-thumbnail-edit i').dropzone({
+		url                  : '/admin/profile/upload',
+		uploadMultiple       : false,
+		addedfile            : function (file) {
+			$loader.fadeIn(200);
+		},
+		success              : function (file, newPath) {
+			$('#profile-thumbnail').attr('src', newPath);
+			$loader.fadeOut(200);
+		},
+		error                : function () {
+			$loader.fadeOut(200);
+		},
+		createImageThumbnails: false,
+		headers              : {
+			'X-CSRF-Token': $postThumbnailEdit.attr('data-token')
+		}
+	});
 });
