@@ -25,7 +25,7 @@ class BackController extends Controller
 	 */
 	public function getHome() : RedirectResponse
 	{
-		return Redirect::route('back.profile.edit');
+		return redirect()->route('back.profile.get');
 	}
 
 	/**
@@ -35,9 +35,7 @@ class BackController extends Controller
 	 */
 	public function getProfile() : \Illuminate\View\View
 	{
-		$user = User::find(1);
-
-		return View::make('back.profile.edit', compact('user'));
+		return view('back.profile.edit');
 	}
 
 	/**
@@ -48,11 +46,11 @@ class BackController extends Controller
 	 */
 	public function postProfile(Requests\UpdateProfileRequest $request) : RedirectResponse
 	{
-		$user = User::find(1);
+		$user = \Auth::user();
 		$user->desc = $request->input('desc');
 		$user->save();
 
-		return Redirect::back()->with('message', ucfirst(trans('back/profile.success_updated')));
+		return redirect()->back()->with('message', ucfirst(trans('back/profile.success_updated')));
 	}
 
 	/**
@@ -85,6 +83,6 @@ class BackController extends Controller
 		$user->thumbnail = $name . '.' . $ext;
 		$user->save();
 
-		return Response::json(url('img/user', $name . '.' . $ext));
+		return response()->json(url('img/user', $name . '.' . $ext));
 	}
 }

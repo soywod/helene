@@ -17,8 +17,8 @@
                         {{ trans('front/menu.home') }}
                     </a>
                 </li>
-                <li class="{{ Route::currentRouteNamed('front.contact.create') ? 'active' : '' }}">
-                    <a href="{{ route('front.contact.create')  }}">
+                <li class="{{ Route::currentRouteNamed('front.contact.get') ? 'active' : '' }}">
+                    <a href="{{ route('front.contact.get')  }}">
                         {{ trans('front/menu.contact') }}
                     </a>
                 </li>

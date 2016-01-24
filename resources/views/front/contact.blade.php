@@ -7,7 +7,7 @@
     @include('front.includes.menu')
 
     <div class="container">
-        <form id="contact-form" class="form-horizontal" method="POST" action="{{ route('front.contact.store') }}">
+        <form id="contact-form" class="form-horizontal" method="POST" action="{{ route('front.contact.post') }}">
 
             {{ csrf_field() }}
 

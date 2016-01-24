@@ -19,14 +19,14 @@ class FrontController extends Controller
 	public function getHome()
 	{
 		// Retrieve user
-		// TODO : use Auth::user() instead
 		$user = User::find(1);
+		$countWorks = $user->works->count();
 
 		// Retrieve random works
-		$randWorks = $user->works->random(9);
+		$randWorks = ($countWorks > 9 ? $user->works->random(9) : $user->works);
 
 		// Return the view
-		return view('front.getHome', compact('user', 'randWorks'));
+		return view('front.home', compact('user', 'randWorks'));
 	}
 
 	public function getWorks($parCategory)
@@ -47,14 +47,14 @@ class FrontController extends Controller
 		$works = (is_null($category) ? Work::all() : $category->works);
 
 		// Return the view
-		return view('front.getWorks', compact('works'));
+		return view('front.works', compact('works'));
 	}
 
 	public function getContact()
 	{
 		$captchaSecret = env('CAPTCHA_SECRET');
 
-		return view('front.getContact', compact('captchaSecret'));
+		return view('front.contact', compact('captchaSecret'));
 	}
 
 	public function postContact(Requests\StoreContactRequest $request)

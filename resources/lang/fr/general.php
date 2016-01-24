@@ -10,6 +10,8 @@ return [
 	'category'    => 'catégorie',
 	'photo'       => 'photo',
 	'email'       => 'email',
+	'connect'     => 'se connecter',
+	'password'    => 'mot de passe',
 	'captcha'     => 'captcha',
 	'send'        => 'envoyer',
 	'tel'         => 'téléphone',

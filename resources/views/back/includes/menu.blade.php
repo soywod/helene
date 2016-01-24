@@ -7,7 +7,8 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{{ route('back.home') }}">{{ trans('back/menu.admin') }}</a>
+            <a class="navbar-brand" href="{{ route('back.home') }}">{{ trans('front/menu.full_name') }}</a>
+            <p class="navbar-text">- {{ trans('back/menu.admin') }} -</p>
         </div>
 
         <div class="collapse navbar-collapse" id="navbar">
@@ -18,8 +19,8 @@
                         {{ trans('back/menu.back_to_front') }}
                     </a>
                 </li>
-                <li class="{{ Route::currentRouteNamed('back.profile.edit') ? 'active' : '' }}">
-                    <a href="{{ route('back.profile.edit')  }}">{{ trans('back/menu.profile') }}</a>
+                <li class="{{ Route::currentRouteNamed('back.profile.get') ? 'active' : '' }}">
+                    <a href="{{ route('back.profile.get')  }}">{{ trans('back/menu.profile') }}</a>
                 </li>
                 <li class="{{ Request::segment(2) === 'category' ? 'active' : '' }}">
                     <a href="{{ route('back.category.index')  }}">{{ trans('back/menu.categories') }}</a>

@@ -24,11 +24,9 @@ class UpdateCategoryRequest extends Request
 	 */
 	public function rules()
 	{
-		$category_id = Category::where('slug', $this->input('slug'))->first()->id;
-
 		return [
 			'name' => 'required',
-			'slug' => 'required|unique:categories,slug,' . $category_id . '|regex:/^[a-zA-Z\-]+$/',
+			'slug' => 'required|unique:categories,slug,' . $this->segment(3) . '|regex:/^[a-zA-Z\-]+$/',
 		];
 	}
 }

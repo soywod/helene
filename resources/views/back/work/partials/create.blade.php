@@ -10,6 +10,19 @@
     </div>
 
     <div class="form-group">
+        <label for="work-thumbnail" class="col-sm-2 control-label">{{ ucfirst(trans('general.photo')) }}</label>
+        <div class="col-sm-10">
+            <div class="work-thumbnail">
+                <input type="hidden" name="thumbnail" value="{{ old('thumbnail') }}">
+                <img id="work-thumbnail" src="{{ url('img/upload/' . old('thumbnail')) }}" alt="{{ ucfirst(trans('back/work.add_photo')) }}">
+                <div class="work-thumbnail-edit" data-token="{{ csrf_token() }}" style="display: none">
+                    <i class="fa fa-3x fa-pencil-square-o"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
         <label for="work-category" class="col-sm-2 control-label">{{ ucfirst(trans('general.category')) }}</label>
         <div class="col-sm-10">
             <select name="category_id" id="work-category" class="form-control">
@@ -59,7 +72,7 @@
 
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10 text-right">
-            <a href="{{ URL::previous() }}" class="btn btn-default">
+            <a href="{{ route('back.work.index') }}" class="btn btn-default">
                 <i class="fa fa-arrow-left"></i>
                 {{ ucfirst(trans('general.back')) }}
             </a>

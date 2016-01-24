@@ -11,15 +11,9 @@
 |
 */
 
-Route::get('/seed', function ()
-{
-	for ($i = 0; $i < 50; $i++)
-		factory(App\Work::class)->create();
-});
-
 Route::get('/', 'FrontController@getHome')->name('front.home');
-Route::get('/works/{category}', 'FrontController@getWorks')->name('front.works');
-Route::get('/work/{id}', 'FrontController@getWork')->name('front.work');
+Route::get('works/{category}', 'FrontController@getWorks')->name('front.works');
+Route::get('work/{id}', 'FrontController@getWork')->name('front.work');
 
 /*
 |--------------------------------------------------------------------------
@@ -34,36 +28,45 @@ Route::get('/work/{id}', 'FrontController@getWork')->name('front.work');
 
 Route::group(['middleware' => ['web']], function ()
 {
-	Route::get('/contact', 'FrontController@getContact')->name('front.contact.create');
-	Route::post('/contact', 'FrontController@postContact')->name('front.contact.store');
+	Route::get('contact', 'FrontController@getContact')->name('front.contact.get');
+	Route::post('contact', 'FrontController@postContact')->name('front.contact.post');
 
-	Route::group(['prefix' => 'admin'], function ()
+	Route::get('login', 'Auth\AuthController@getLogin')->name('auth.login.get');
+	Route::post('login', 'Auth\AuthController@postLogin')->name('auth.login.post');
+
+	Route::group(['middleware' => ['auth']], function ()
 	{
-		Route::get('/', 'BackController@getHome')->name('back.home');
-		Route::get('/profile', 'BackController@getProfile')->name('back.profile.edit');
-		Route::put('/profile', 'BackController@postProfile')->name('back.profile.update');
-		Route::post('/profile/upload', 'BackController@postUpload');
+		Route::get('logout', 'Auth\AuthController@logout');
 
-		Route::resource('category', 'CategoryController', [
-			'names' => [
-				'index'   => 'back.category.index',
-				'create'  => 'back.category.create',
-				'store'   => 'back.category.store',
-				'edit'    => 'back.category.edit',
-				'update'  => 'back.category.update',
-				'destroy' => 'back.category.destroy',
-			],
-		]);
+		Route::group(['prefix' => 'admin'], function ()
+		{
+			Route::get('/', 'BackController@getHome')->name('back.home');
+			Route::get('profile', 'BackController@getProfile')->name('back.profile.get');
+			Route::put('profile', 'BackController@postProfile')->name('back.profile.post');
+			Route::post('profile/upload', 'BackController@postUpload');
+			Route::post('work/upload', 'WorkController@postUpload');
 
-		Route::resource('work', 'WorkController', [
-			'names' => [
-				'index'   => 'back.work.index',
-				'create'  => 'back.work.create',
-				'store'   => 'back.work.store',
-				'edit'    => 'back.work.edit',
-				'update'  => 'back.work.update',
-				'destroy' => 'back.work.destroy',
-			],
-		]);
+			Route::resource('category', 'CategoryController', [
+				'names' => [
+					'index'   => 'back.category.index',
+					'create'  => 'back.category.create',
+					'store'   => 'back.category.store',
+					'edit'    => 'back.category.edit',
+					'update'  => 'back.category.update',
+					'destroy' => 'back.category.destroy',
+				],
+			]);
+
+			Route::resource('work', 'WorkController', [
+				'names' => [
+					'index'   => 'back.work.index',
+					'create'  => 'back.work.create',
+					'store'   => 'back.work.store',
+					'edit'    => 'back.work.edit',
+					'update'  => 'back.work.update',
+					'destroy' => 'back.work.destroy',
+				],
+			]);
+		});
 	});
 });

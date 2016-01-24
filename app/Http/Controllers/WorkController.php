@@ -3,11 +3,10 @@ declare(strict_types = 1);
 
 namespace App\Http\Controllers;
 
-use Redirect, View;
+use Redirect, View, Request, Image, Auth;
 
 use Illuminate\Http\
 {
-	Request,
 	Response,
 	RedirectResponse
 };
@@ -54,11 +53,15 @@ class WorkController extends Controller
 	public function store(StoreOrUpdateWorkRequest $request) : RedirectResponse
 	{
 		$params = $request->all();
-
 		$params['sold'] = isset($params['sold']);
-		Work::create($params);
+		$params['user_id'] = Auth::user()->id;
+		$work = Work::create($params);
 
-		return Redirect::route('back.work.index')->with('message', ucfirst(trans('back/work.success_created')));
+		rename(public_path('img/upload/' . $work->thumbnail), public_path('img/work/' . $work->thumbnail));
+
+		$this->clearUploads();
+
+		return Redirect::route('back.work.index')->with('message', ucfirst(trans('back/work.success_stored')));
 	}
 
 	/**
@@ -100,6 +103,10 @@ class WorkController extends Controller
 		$params['sold'] = isset($params['sold']);
 		$work->update($params);
 
+		rename(public_path('img/upload/' . $work->thumbnail), public_path('img/work/' . $work->thumbnail));
+
+		$this->clearUploads();
+
 		return Redirect::route('back.work.index')->with('message', ucfirst(trans('back/work.success_updated')));
 	}
 
@@ -118,6 +125,37 @@ class WorkController extends Controller
 		else
 		{
 			return Redirect::back()->with('message', ucfirst(trans('back/work.error_deleted')));
+		}
+	}
+
+	/**
+	 * Upload an image
+	 * @return \Illuminate\Http\JsonResponse
+	 */
+	public function postUpload() : \Illuminate\Http\JsonResponse
+	{
+		// Retrieve file and generate random name
+		$file = Request::file('file');
+		$name = str_random();
+		$ext = $file->getClientOriginalExtension();
+
+		Image::make($file->getRealPath())->save(public_path('img/upload/' . $name . '.' . $ext));
+
+		return response()->json([
+			'name' => $name . '.' . $ext,
+			'path' => url('img/upload', $name . '.' . $ext),
+		]);
+	}
+
+	private function clearUploads()
+	{
+		$tmpImages = glob(public_path('img/upload/*'));
+		foreach ($tmpImages as $image)
+		{
+			if (is_file($image))
+			{
+				unlink($image);
+			}
 		}
 	}
 }
