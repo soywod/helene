@@ -2,7 +2,7 @@
 
 return [
 	'abstract-watercolor' => 'Aquarelles abstraites',
-	'still-life'          => 'Natures mortes',
-	'marine'              => 'Marines',
-	'landscape'           => 'Paysages',
+	'still-life' => 'Natures mortes',
+	'marine' => 'Marines',
+	'landscape' => 'Paysages',
 ];

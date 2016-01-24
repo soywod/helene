@@ -16,6 +16,9 @@ $(function () {
 	$('[data-toggle="tooltip"]').tooltip();
 	$('#work-sold').bootstrapSwitch();
 
+	$('#contact-form').on('submit', function() {
+		$loader.show(0);
+	});
 
 	$('.masonry-item').each(function (index, elem) {
 		$(elem).fadeIn(200 + 50 * index);
@@ -34,7 +37,7 @@ $(function () {
 		url                  : '/admin/profile/upload',
 		uploadMultiple       : false,
 		addedfile            : function (file) {
-			$loader.fadeIn(200);
+			$loader.show(0);
 		},
 		success              : function (file, newPath) {
 			$('#profile-thumbnail').attr('src', newPath);

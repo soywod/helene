@@ -13,10 +13,14 @@
         <div class="collapse navbar-collapse" id="navbar">
             <ul class="nav navbar-nav navbar-right">
                 <li class="{{ Route::currentRouteNamed('front.home') ? 'active' : '' }}">
-                    <a href="{{ route('front.home')  }}">{{ trans('front/menu.home') }}</a>
+                    <a href="{{ route('front.home')  }}">
+                        {{ trans('front/menu.home') }}
+                    </a>
                 </li>
-                <li>
-                    <a href="#">{{ trans('front/menu.contact') }}</a>
+                <li class="{{ Route::currentRouteNamed('front.contact.create') ? 'active' : '' }}">
+                    <a href="{{ route('front.contact.create')  }}">
+                        {{ trans('front/menu.contact') }}
+                    </a>
                 </li>
                 <li class="dropdown{{ Route::currentRouteNamed('front.works') ? ' active' : '' }}">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
