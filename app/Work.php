@@ -42,4 +42,22 @@ class Work extends Model
 	{
 		return $this->belongsTo(Category::class);
 	}
+
+	public function scopeGetDesc($query)
+	{
+		$work = $query->getModel();
+		$desc = $work->title;
+
+		$desc .= ' - ' . $work->getSize();
+		$desc .= $work->box_price > 0 ? ' - ' . ucfirst(trans('front/work.box_price', ['price' => $work->box_price])) : '';
+		$desc .= $work->unbox_price > 0 ? ' - ' . ucfirst(trans('front/work.unbox_price', ['price' => $work->unbox_price])) : '';
+		$desc .= $work->sold ? ' - ' . ucfirst(trans('front/work.sold')) : '';
+
+		return $desc;
+	}
+
+	public function scopeGetSize($query)
+	{
+		return $query->getModel()->width . ' x ' . $query->getModel()->height . ' cm';
+	}
 }
