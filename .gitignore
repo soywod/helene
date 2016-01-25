@@ -1,7 +1,11 @@
 !.gitkeep
+!/public/img/user/default.png
 /.env
 /.idea
 /vendor
 /bower_components
 /node_modules
 /scoat7
+/public/img/user/*
+/public/img/upload/*
+/public/img/work/*

@@ -33,7 +33,7 @@
                 </div>
 
                 <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                    <label for="profile-password" class="col-sm-2 control-label">{{ ucfirst(trans('general.change_password')) }}</label>
+                    <label for="profile-password" class="col-sm-2 control-label">{{ ucfirst(trans('general.new_password')) }}</label>
                     <div class="col-sm-10">
                         <input id="profile-password" name="password" type="password" class="form-control">
                     </div>
