@@ -22,32 +22,17 @@
             to improve your experience.
         </p><![endif]-->
 
+        @yield('content')
+
+        <div class="loader" style="display: none">
+            <i class="fa fa-refresh fa-5x fa-spin"></i>
+        </div>
+
         @if(Session::has('message'))
             <div class="popup">
                 {{ Session::get('message') }}
             </div>
         @endif
-
-        @yield('content')
-
-        <div class="preview" style="display: none">
-            <div class="preview-loader">
-                <i class="fa fa-5x fa-circle-o-notch fa-spin"></i>
-            </div>
-
-            <div class="preview-close">
-                <i class="fa fa-4x fa-times"></i>
-            </div>
-
-            <div class="preview-image"></div>
-            <div class="preview-desc">
-                <div class="preview-desc-content"></div>
-            </div>
-        </div>
-
-        <div class="loader" style="display: none">
-            <i class="fa fa-refresh fa-5x fa-spin"></i>
-        </div>
 
         @section('js')
             <script src="{{ asset('js/vendors.min.js') }}"></script>

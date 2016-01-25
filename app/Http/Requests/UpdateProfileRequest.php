@@ -25,6 +25,8 @@ class UpdateProfileRequest extends Request
 	{
 		return [
 			'desc' => 'required',
+			'password' => '',
+			'password_confirmation' => 'required_with:password',
 		];
 	}
 }

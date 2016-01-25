@@ -32,6 +32,20 @@
                     </div>
                 </div>
 
+                <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                    <label for="profile-password" class="col-sm-2 control-label">{{ ucfirst(trans('general.change_password')) }}</label>
+                    <div class="col-sm-10">
+                        <input id="profile-password" name="password" type="password" class="form-control">
+                    </div>
+                </div>
+
+                <div class="form-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
+                    <label for="profile-password-confirm" class="col-sm-2 control-label">{{ ucfirst(trans('general.confirm')) }}</label>
+                    <div class="col-sm-10">
+                        <input id="profile-password-confirm" name="password_confirmation" type="password" class="form-control">
+                    </div>
+                </div>
+
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10 text-right">
                         <button type="submit" class="btn btn-default">
