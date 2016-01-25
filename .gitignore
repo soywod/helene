@@ -1,5 +1,3 @@
-!.gitkeep
-!/public/img/user/default.png
 /.env
 /.idea
 /vendor
@@ -9,3 +7,5 @@
 /public/img/user/*
 /public/img/upload/*
 /public/img/work/*
+!.gitkeep
+!/public/img/user/default.png
