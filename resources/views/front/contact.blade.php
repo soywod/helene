@@ -42,7 +42,7 @@
             <div class="form-group{{ $errors->has('g-recaptcha-response') ? ' has-error' : '' }}">
                 <label for="contact-captcha" class="col-sm-3 control-label">{{ ucfirst(trans('general.captcha')) }}</label>
                 <div class="col-sm-9">
-                    <div id="contact-captcha" class="g-recaptcha" data-sitekey="{{ $captchaSecret }}"></div>
+                    <div id="contact-captcha" class="g-recaptcha" data-sitekey="{{ $captchaKey }}"></div>
                 </div>
             </div>
 

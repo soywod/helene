@@ -52,9 +52,9 @@ class FrontController extends Controller
 
 	public function getContact()
 	{
-		$captchaSecret = env('CAPTCHA_SECRET');
+		$captchaKey = env('CAPTCHA_KEY');
 
-		return view('front.contact', compact('captchaSecret'));
+		return view('front.contact', compact('captchaKey'));
 	}
 
 	public function postContact(Requests\StoreContactRequest $request)
@@ -87,18 +87,23 @@ class FrontController extends Controller
 		// If OK, send mail
 		if ($result['success'])
 		{
-			Mail::send('mail.new_message', compact('name', 'email', 'tel', 'message'), function ($mail)
+			Mail::send('mail.contact', [
+				'name'  => $params['name'],
+				'email' => $params['email'],
+				'tel'   => $params['tel'],
+				'msg'   => $params['message'],
+			], function ($mail) use ($params)
 			{
-				$mail->to(env('MAIL_ADDRESS'))->subject(ucfirst(trans('front/contact.new_message_subject')));
+				$mail->to($params['email'])->subject(ucfirst(trans('front/contact.new_message_subject')));
 			});
 
-			return route('front.home')->with('message', ucfirst(trans('front/contact.success_sent')));
+			return back()->with('message', ucfirst(trans('front/contact.success_sent')));
 		}
 
 		// Else back with error message
 		else
 		{
-			return back()->with('message', ucfirst(trans('mail.captcha_failed')));
+			return back()->with('message', ucfirst(trans('front/contact.captcha_failed')));
 		}
 	}
 }
