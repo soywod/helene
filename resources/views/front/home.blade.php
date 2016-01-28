@@ -13,7 +13,7 @@
                     <img src="{{ url('img/user', $user->thumbnail) }}" alt="{{ trans('front/home.full_name') }}">
                 </div>
                 <div class="helene-desc">
-                    {{ $user->desc }}
+                    {!! $user->desc !!}
                 </div>
             </section>
         </div>

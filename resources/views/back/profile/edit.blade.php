@@ -28,7 +28,9 @@
                 <div class="form-group{{ $errors->has('desc') ? ' has-error' : '' }}">
                     <label for="profile-desc" class="col-sm-3 control-label">{{ ucfirst(trans('general.desc')) }}</label>
                     <div class="col-sm-9">
-                        <textarea name="desc" class="form-control" id="profile-desc" rows="10">{{ old('desc') ?? Auth::user()->desc }}</textarea>
+                        <textarea id="profile-desc" name="desc">
+                            {{ Auth::user()->desc }}
+                        </textarea>
                     </div>
                 </div>
 

@@ -7,7 +7,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{{ route('back.home') }}">{{ trans('front/menu.full_name') }}</a>
+            <a class="navbar-brand" href="{{ route('front.home') }}">{{ trans('front/menu.full_name') }}</a>
             <p class="navbar-text">- {{ trans('back/menu.admin') }} -</p>
         </div>
 

@@ -7,20 +7,22 @@ var gulp   = require('gulp'),
 
 // Static paths
 var paths = {
-	css           : [
+	css  : [
 		'bower_components/bootstrap/dist/css/bootstrap.min.css',
 		'bower_components/font-awesome/css/font-awesome.min.css',
 		'bower_components/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.min.css',
-		'bower_components/lightbox2/dist/css/lightbox.min.css'
+		'bower_components/lightbox2/dist/css/lightbox.min.css',
+		'bower_components/summernote/dist/summernote.css'
 	],
-	js            : [
+	js   : [
 		'bower_components/jquery/dist/jquery.min.js',
 		'bower_components/bootstrap/dist/js/bootstrap.min.js',
 		'bower_components/dropzone/dist/min/dropzone.min.js',
 		'bower_components/bootstrap-switch/dist/js/bootstrap-switch.min.js',
-		'bower_components/lightbox2/dist/js/lightbox.min.js'
+		'bower_components/lightbox2/dist/js/lightbox.min.js',
+		'bower_components/summernote/dist/summernote.min.js'
 	],
-	fonts         : [
+	fonts: [
 		'bower_components/font-awesome/fonts/*'
 	],
 

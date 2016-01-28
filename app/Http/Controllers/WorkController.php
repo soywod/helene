@@ -57,7 +57,10 @@ class WorkController extends Controller
 		$params['user_id'] = Auth::user()->id;
 		$work = Work::create($params);
 
-		rename(public_path('img/upload/' . $work->thumbnail), public_path('img/work/' . $work->thumbnail));
+		if (file_exists(public_path('img/upload/' . $work->thumbnail)))
+		{
+			rename(public_path('img/upload/' . $work->thumbnail), public_path('img/work/' . $work->thumbnail));
+		}
 
 		$this->clearUploads();
 
@@ -103,7 +106,10 @@ class WorkController extends Controller
 		$params['sold'] = isset($params['sold']);
 		$work->update($params);
 
-		rename(public_path('img/upload/' . $work->thumbnail), public_path('img/work/' . $work->thumbnail));
+		if (file_exists(public_path('img/upload/' . $work->thumbnail)))
+		{
+			rename(public_path('img/upload/' . $work->thumbnail), public_path('img/work/' . $work->thumbnail));
+		}
 
 		$this->clearUploads();
 
