@@ -1,0 +1,37 @@
+@media (max-width: 767px)
+  body
+    font-size: 14px
+
+  .navbar-brand
+    font-size: 28px
+
+  .helene-thumbnail
+    height: 75px
+    width: 75px
+
+  .masonry-3
+    @include column-count(2)
+
+  .masonry-5
+    @include column-count(3)
+
+  .category-menu
+    margin: -10px 0 0 0
+
+    a
+      font-size: 12px
+      padding: 10px
+
+  .popup
+    padding: 10px
+    right: -150px
+    top: 60px
+    width: 150px
+
+  @keyframes slide
+    from
+      right: -150px
+      opacity: 0
+    to
+      right: 0
+      opacity: 1

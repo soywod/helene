@@ -24,8 +24,9 @@ class UpdateProfileRequest extends Request
 	public function rules()
 	{
 		return [
-			'desc' => 'required',
-			'password' => 'required_with:password_confirmation',
+			'desc'                  => 'required',
+			'email'                 => 'required|email',
+			'password'              => 'required_with:password_confirmation',
 			'password_confirmation' => 'required_with:password',
 		];
 	}

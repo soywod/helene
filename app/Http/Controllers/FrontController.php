@@ -94,7 +94,7 @@ class FrontController extends Controller
 				'msg'   => $params['message'],
 			], function ($mail) use ($params)
 			{
-				$mail->to(env('MAIL_ADDRESS'))->subject(ucfirst(trans('front/contact.new_message_subject')));
+				$mail->to(User::find(1)->email)->subject(ucfirst(trans('front/contact.new_message_subject')));
 			});
 
 			return back()->with('message', ucfirst(trans('front/contact.success_sent')));

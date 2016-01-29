@@ -34,6 +34,13 @@
                     </div>
                 </div>
 
+                <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                    <label for="profile-email" class="col-sm-3 control-label">{{ ucfirst(trans('general.email')) }}</label>
+                    <div class="col-sm-9">
+                        <input id="profile-email" name="email" type="email" class="form-control" value="{{ old('email') ?? Auth::user()->email }}">
+                    </div>
+                </div>
+
                 <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                     <label for="profile-password" class="col-sm-3 control-label">{{ ucfirst(trans('general.new_password')) }}</label>
                     <div class="col-sm-9">
